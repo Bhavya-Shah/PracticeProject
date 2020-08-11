@@ -1,0 +1,268 @@
+[{
+    "key": 1,
+    "tag": "select",
+    "class": "form-control",
+    "id": "honor",
+    "label": "Select honor",
+    "name": "honor",
+    "formControlName": "honor",
+    "options": [{
+        "text": "Mr.",
+        "value": "Mr"
+      },
+      {
+        "text": "Mrs.",
+        "value": "Mrs"
+      },
+      {
+        "text": "Ms.",
+        "value": "Ms"
+      },
+      {
+        "text": "Dr.",
+        "value": "Dr"
+      }
+    ],
+    "validations": {
+      "required": {
+        "value": true,
+        "message": "Required!"
+      }
+    }
+  },
+  {
+    "key": 2,
+    "type": "text",
+    "tag": "input",
+    "class": "form-control",
+    "id": "firstname",
+    "name": "firstname",
+    "placeholder": "Firstname",
+    "label": "Firstname",
+    "formControlName": "firstname",
+    "validations": {
+      "required": {
+        "value": true,
+        "message": "Required!"
+      },
+      "maxLength": {
+        "value": 25,
+        "message": "Length must be less than 25"
+      },
+      "minLength": {
+        "value": 3,
+        "message": "Length must be greater than 3"
+      },
+      "pattern": {
+        "value": "^[a-zA-Z]+$",
+        "message": "Only Alphabets"
+      }
+    }
+  },
+  {
+    "key": 3,
+    "type": "text",
+    "tag": "input",
+    "class": "form-control",
+    "id": "lastname",
+    "name": "lastname",
+    "placeholder": "Lastname",
+    "label": "Lastname",
+    "formControlName": "lastname",
+    "validations": {
+      "required": {
+        "value": true,
+        "message": "Required!"
+      },
+      "maxLength": {
+        "value": 50,
+        "message": "Length must be less than 50"
+      },
+      "minLength": {
+        "value": 3,
+        "message": "Length must be greater than 3"
+      },
+      "pattern": {
+        "value": "^[a-zA-Z]+$",
+        "message": "Only Alphabets"
+      }
+    }
+  },
+  {
+    "key": 4,
+    "type": "email",
+    "tag": "input",
+    "class": "form-control",
+    "id": "email",
+    "name": "email",
+    "placeholder": "Email",
+    "label": "Email",
+    "formControlName": "email",
+    "validations": {
+      "required": {
+        "value": true,
+        "message": "Required!"
+      },
+      "pattern": {
+        "value": "[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$",
+        "message": "Invalid Email"
+      }
+    }
+  },
+  {
+    "key": 5,
+    "tag": "textarea",
+    "class": "form-control",
+    "id": "comments",
+    "name": "comments",
+    "placeholder": "Write your comment here",
+    "label": "Comments",
+    "formControlName": "comments",
+    "validations": {
+      "maxLength": {
+        "value": 150,
+        "message": "length must be less than 250 characters"
+      }
+    }
+  },
+  {
+    "key": 6,
+    "type": "url",
+    "tag": "input",
+    "class": "form-control",
+    "id": "portfolio",
+    "name": "portfolio",
+    "placeholder": "Enter URL",
+    "label": "Portfolio",
+    "formControlName": "portfolio",
+    "validations": {
+      "pattern": {
+        "value": "(https?:\/\/(?:www\\.|(?!www))[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\\.[^\\s]{2,}|www\\.[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\\.[^\\s]{2,}|https?:\/\/(?:www\\.|(?!www))[a-zA-Z0-9]+\\.[^\\s]{2,}|www\\.[a-zA-Z0-9]+\\.[^\\s]{2,})",
+        "message": "Invalid URL"
+      }
+    }
+  },
+  {
+    "key": 7,
+    "type": "text",
+    "mask": "0000/00/00",
+    "placeholder": "yyyy-MM-dd",
+    "tag": "input",
+    "class": "form-control",
+    "id": "DOB",
+    "name": "DOB",
+    "label": "Date of Birth",
+    "formControlName": "DOB",
+    "validations": {
+      "required": {
+        "value": true,
+        "message": "Required!"
+      },
+      "pattern": {
+        "value": "([12]\\d{3}(0[1-9]|1[0-2])(0[1-9]|[12]\\d|3[01]))",
+        "message": "Invalid Date"
+      }
+    }
+  },
+  {
+    "key": 10,
+    "class": "form-check-input",
+    "name": "gender",
+    "type": "radio",
+    "tag": "input",
+    "formControlName": "gender",
+    "label": "Gender",
+    "ids": [{
+        "value": "Male",
+        "text": "Male"
+      },
+      {
+        "value": "Female",
+        "text": "Female"
+      },
+      {
+        "value": "Trans",
+        "text": "Trans"
+      }
+    ],
+    "validations": {
+      "required": {
+        "value": true,
+        "message": "Required!"
+      }
+    }
+  },
+  {
+    "key": 11,
+    "class": "form-check-input",
+    "name": "services",
+    "type": "checkbox",
+    "tag": "input",
+    "formArrayName": "services",
+    "label": "Please Select Services",
+    "ids": [{
+        "id": 0,
+        "value": "Interior and Upholstery Cleaning",
+        "text": "Interior and Upholstery Cleaning"
+      },
+      {
+        "id": 1,
+        "value": "Wax Polish",
+        "text": "Wax Polish"
+      },
+      {
+        "id": 2,
+        "value": "AC Disinfection Treatment",
+        "text": "AC Disinfection Treatment"
+      },
+      {
+        "id": 3,
+        "value": "Engine Flush Treatment",
+        "text": "Engine Flush Treatment"
+      }
+    ]
+  },
+  {
+    "key": 8,
+    "class": "form-control",
+    "formControlName": "parentName",
+    "id": "parentName",
+    "label": "Parent's Name",
+    "name": "parentName",
+    "isDisabled": true,
+    "placeholder": "Parent's Name",
+    "tag": "input",
+    "type": "text",
+    "validations": {
+      "required": {
+        "message": "Required!"
+      },
+      "pattern": {
+        "message": "Only Alphabets"
+      },
+      "maxLength": {
+        "message": "Length must be less than 25"
+      }
+    }
+  },
+  {
+    "key": 9,
+    "class": "form-control",
+    "formControlName": "parentContact",
+    "id": "parentContact",
+    "isDisabled": true,
+    "label": "Parent's Contact",
+    "tag": "input",
+    "type": "text",
+    "name": "parentContact",
+    "placeholder": "Parent's Contact",
+    "validations": {
+      "pattern": {
+        "message": "Invalid Contact!"
+      },
+      "required": {
+        "message": "Required!"
+      }
+    }
+  }
+]

@@ -1,0 +1,34 @@
+<!-- Header -->
+<nav class="navbar navbar-dark bg-primary mb-4">
+  <a class="navbar-brand" href="#">Smart Form</a>
+</nav>
+<!-- Header ends here -->
+
+<!-- User Form -->
+<div class="container-fluid">
+  <div class="container bg-secondary">
+    <h3 class="p-2 m-0">User Form</h3>
+  </div>
+  <div *ngIf="isDataAvailable">
+    <div class="container bg-dark">
+      <div class="row mb-4">
+        <div class="col-12 col-md-6 col-lg-4 mt-4">
+          <form [formGroup]="userFormGroup" (ngSubmit)="onSubmit()">
+            <app-user-form-field *ngFor="let field of userForm" [field]="field" [userFormGroup]="userFormGroup">
+            </app-user-form-field>
+            <div class="form-group">
+              <button type="submit" [disabled]="!userFormGroup.valid" [ngClass]="toggleClass()"
+                class="btn mt-3">Submit</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- User Form ends here -->
+<ngx-spinner bdColor="rgba(0, 0, 0, 1)" fullscreen="true">
+  <!-- <img src='https://media.giphy.com/media/o8igknyuKs6aY/giphy.gif' /> -->
+  <!-- <img src='https://media.giphy.com/media/ycfHiJV6WZnQDFjSWH/giphy.gif' /> -->
+  <!-- <img src="https://media.giphy.com/media/4EFt4UAegpqTy3nVce/giphy.gif" /> -->
+</ngx-spinner>

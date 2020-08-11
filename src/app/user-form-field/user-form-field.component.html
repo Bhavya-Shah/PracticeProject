@@ -1,0 +1,104 @@
+<form [formGroup]="userFormGroup">
+    <div *ngIf="field.tag == 'input' && (field.type != 'radio' && field.type != 'checkbox')">
+      <div class="form-group" [ngClass]="toggleClass()">
+        <label class="text-muted" [for]="field.id">{{field.label}}</label>
+        <input [placeholder]="field.placeholder" [id]="field.id" [name]="field.name" [class]="field.class"
+          [type]="field.type" [formControlName]="field.formControlName" [mask]="field.mask">
+        <div
+          *ngIf="userFormGroup.controls[field.formControlName].invalid && 
+              (userFormGroup.controls[field.formControlName].dirty || userFormGroup.controls[field.formControlName].touched)">
+          <div *ngIf="userFormGroup.controls[field.formControlName].errors.required">
+            <small class="form-text text-danger">
+              {{field.validations.required.message}}
+            </small>
+          </div>
+          <div *ngIf="userFormGroup.controls[field.formControlName].errors.pattern">
+            <small class="form-text text-danger">
+              {{field.validations.pattern.message}}
+            </small>
+          </div>
+          <div *ngIf="userFormGroup.controls[field.formControlName].errors.maxlength">
+            <small class="form-text text-danger">
+              {{field.validations.maxLength.message}}
+            </small>
+          </div>
+          <div *ngIf="userFormGroup.controls[field.formControlName].errors.minlength">
+            <small class="form-text text-danger">
+              {{field.validations.minLength.message}}
+            </small>
+          </div>
+        </div>
+        <div *ngIf="field.name=='DOB'">
+          <div *ngIf="userFormGroup.errors">
+            <small class="form-text text-danger">
+              {{userFormGroup.errors.message}}
+            </small>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div *ngIf="field.type == 'radio'">
+      <label class="text-muted">{{field.label}}</label>
+      <div class="d-flex mb-3">
+        <div *ngFor="let item of field.ids">
+          <div class="form-check mr-3">
+            <input [id]="item.text" [name]="field.name" [class]="field.class" type='radio'
+              [formControlName]="field.formControlName" [value]="item.value">
+            <label class="form-check-label" [for]="item.text">{{item.text}}</label>
+            <div *ngIf="userFormGroup.controls[field.formControlName].invalid && 
+            userFormGroup.controls[field.formControlName].touched">
+              <small class="form-text text-danger">
+                {{field.validations.required.message}}
+              </small>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div *ngIf="field.type == 'checkbox'">
+      <label class="text-muted">{{field.label}}</label>
+      <div class="d-flex mb-3">
+        <div class="form-check mr-3">
+          <div [formArrayName]="field.formArrayName">
+            <div *ngFor="let item of field.ids; index as i">
+              <input [class]="field.class" type='checkbox' [name]="item.text" [id]="item.id" [value]="item.value"
+                (change)="onChange($event)">
+              <label class="form-check-label" [for]="item.id">{{item.text}}</label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div *ngIf="field.tag == 'textarea'">
+      <div class="form-group">
+        <label class="text-muted" [for]="field.id">{{field.label}}</label>
+        <textarea [id]="field.id" [class]="field.class" [name]="field.name" [formControlName]="field.formControlName"
+          [placeholder]="field.placeholder"></textarea>
+        <div
+          *ngIf="userFormGroup.controls[field.formControlName].invalid && (userFormGroup.controls[field.formControlName].dirty || userFormGroup.controls[field.formControlName].touched)">
+          <div *ngIf="userFormGroup.controls[field.formControlName].errors.maxlength">
+            <small class="form-text text-danger">
+              {{field.validations.maxLength.message}}
+            </small>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div *ngIf="field.tag == 'select'">
+      <div class="form-group">
+        <label class="text-muted" [for]="field.id">{{field.label}}</label>
+        <select [id]="field.id" [name]="field.name" [class]="field.class" [formControlName]="field.formControlName">
+          <option [ngValue]="null" selected disabled>Select honors</option>
+          <option *ngFor="let item of field.options" [ngValue]="item.value">{{item.text}}</option>
+        </select>
+        <div
+          *ngIf="userFormGroup.controls[field.formControlName].invalid && (userFormGroup.controls[field.formControlName].dirty || userFormGroup.controls[field.formControlName].touched)">
+          <div *ngIf="userFormGroup.controls[field.formControlName].errors.required">
+            <small class="form-text text-danger">
+              {{field.validations.required.message}}
+            </small>
+          </div>
+        </div>
+      </div>
+    </div>
+</form>
